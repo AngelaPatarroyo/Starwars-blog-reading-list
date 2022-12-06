@@ -8,7 +8,7 @@ export const Home = () => {
 
   return (
     <div>
-      <img className="" style={{ width: 1660, height: 800 }} src={fondo} />
+      <img className="" style={{ width: "100%", height: "80%" }} src={fondo} />
     </div>
   );
 };
