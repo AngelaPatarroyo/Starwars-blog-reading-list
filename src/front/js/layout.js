@@ -9,6 +9,7 @@ import { Films } from "./pages/films.jsx";
 import { Species } from "./pages/species.jsx";
 import { Starships } from "./pages/starships.jsx";
 import { Vehicles } from "./pages/vehicles.jsx";
+import { PlanetsInfo } from "./pages/planetsInformation.jsx"
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
@@ -33,6 +34,7 @@ const Layout = () => {
                         <Route elemnt={<Species />} path="/species/" />
                         <Route elemnt={<Starships />} path="/starships/" />
                         <Route element={<Vehicles />} path="/vehicles/" />
+                        <Route element={<PlanetsInfo />} path="/planets/:theid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />
