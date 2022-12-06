@@ -46,7 +46,22 @@ export const Navbar = () => {
             </li>
             <li className="nav-item">
               <a className="nav-link text-white" href="#">
-                Characters
+                People
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link text-white" href="#">
+                Species
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link text-white" href="#">
+                Starships
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link text-white" href="#">
+                Vehicles
               </a>
             </li>
           </ul>
@@ -75,11 +90,6 @@ export const Navbar = () => {
           </li>
           <li>
             <hr className="dropdown-divider" />
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Something else here
-            </a>
           </li>
         </ul>
       </li>
