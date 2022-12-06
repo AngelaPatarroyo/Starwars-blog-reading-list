@@ -1,5 +1,13 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { Card } from "../component/card.jsx";
+import { Context } from "../store/appContext";
 
 export const Vehicles = () => {
-  return <div className="text-white">Vehicles</div>;
+  const { store, actions } = useContext(Context);
+  console.log(store?.vehicles);
+  return (
+    <div>
+      <Card />
+    </div>
+  );
 };
