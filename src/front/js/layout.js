@@ -23,6 +23,7 @@ const Layout = () => {
 
     return (
         <div>
+
             <BrowserRouter basename={basename}>
                 <ScrollToTop>
                     <Navbar />
@@ -34,7 +35,7 @@ const Layout = () => {
                         <Route elemnt={<Species />} path="/species/" />
                         <Route elemnt={<Starships />} path="/starships/" />
                         <Route element={<Vehicles />} path="/vehicles/" />
-                        <Route element={<PlanetsInfo />} path="/planets/:theid" />
+                        <Route element={<PlanetsInfo />} path="/planets/:planetid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 const Planets = () => {
-  const { store } = useContext(Context);
+  const { store, actions } = useContext(Context);
   console.log(store?.planets);
 
   return (
