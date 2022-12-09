@@ -6,6 +6,10 @@ import { Context } from "../store/appContext";
 
 const Planets = () => {
   const { store, actions } = useContext(Context);
+
+  useEffect(() => {
+    actions.loadDataPlanets();
+  }, []);
   console.log(store?.planets);
 
   return (

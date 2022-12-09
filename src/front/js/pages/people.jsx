@@ -6,6 +6,9 @@ import { Context } from "../store/appContext";
 
 const People = () => {
   const { store, actions } = useContext(Context);
+  useEffect(() => {
+    actions.loadDataPeople();
+  }, []);
   console.log(store?.people);
 
   return (

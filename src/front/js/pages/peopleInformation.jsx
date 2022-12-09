@@ -23,7 +23,7 @@ const PeopleInfo = () => {
           <h1>{store.peopleData.name}</h1>
           <p className="mt-5">Height: {store.peopleData.height}</p>
           <p>Gender: {store.peopleData.gender}</p>
-          <p>Hair Color: {store.pleopleData.hair_color}</p>
+          <p>Hair Color: {store.peopleData.hair_color}</p>
           <p>Eye Color: {store.peopleData.eye_color}</p>
 
           <p>Birth Year: {store.peopleData.birth_year}</p>
