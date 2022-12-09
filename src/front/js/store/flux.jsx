@@ -5,8 +5,7 @@ const getState = ({ getStore, getActions, setStore }) => {
       vehicles: [],
       people: [],
       planets: [],
-      planetsIndividuales: [],
-      peopleIndivudales: [],
+      peopleData: [],
       planetsData: {},
     },
     actions: {
@@ -26,6 +25,17 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch(`https://www.swapi.tech/api/planets/${uid}`)
           .then((resp) => resp.json())
           .then((data) => setStore({ planetsData: data.result.properties }));
+      },
+      loadDataAllPeople: async (uid) => {
+        fetch(`https://www.swapi.tech/api/people/${uid}`)
+          .then((resp) => resp.json())
+          .then((data) => setStore({ peopleData: data.result.properties }));
+      },
+
+      loadDataPeople: async () => {
+        fetch("https://www.swapi.tech/api/people?page=1&limit=80")
+          .then((resp) => resp.json())
+          .then((data) => setStore({ people: data.results }));
       },
 
       getMessage: async () => {

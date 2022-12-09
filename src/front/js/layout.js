@@ -9,7 +9,8 @@ import { Films } from "./pages/films.jsx";
 import { Species } from "./pages/species.jsx";
 import { Starships } from "./pages/starships.jsx";
 import { Vehicles } from "./pages/vehicles.jsx";
-import { PlanetsInfo } from "./pages/planetsInformation.jsx"
+import { PlanetsInfo } from "./pages/planetsInformation.jsx";
+import { PeopleInfo } from "./pages/peopleInformation.jsx";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar.jsx";
@@ -30,12 +31,13 @@ const Layout = () => {
                     <Routes>
                         <Route element={<Home />} path="/" />
                         <Route element={<Planets />} path="/planets" />
-                        <Route element={<People />} path="/people/:theid" />
+                        <Route element={<People />} path="/people" />
                         <Route elemnt={<Films />} path="/films/" />
                         <Route elemnt={<Species />} path="/species/" />
                         <Route elemnt={<Starships />} path="/starships/" />
                         <Route element={<Vehicles />} path="/vehicles/" />
                         <Route element={<PlanetsInfo />} path="/planets/:planetid" />
+                        <Route element={<PeopleInfo />} path="/people/:peopleid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

@@ -9,13 +9,24 @@ export const Card = (props) => {
         style={{ width: "18rem" }}
       >
         <img
-          src="https://starwarsblog.starwars.com/wp-content/uploads/2022/03/inside-intel-coruscant-planet.jpg"
+          src={
+            props?.type === "planets"
+              ? `https://starwars-visualguide.com/assets/img/planets/${props.uid}.jpg`
+              : `https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg`
+          }
           className="card-img-top"
           alt="..."
         />
         <div className="card-body">
-          <p className="card-title">{props.name}</p>
-          <Link to={`/planets/${props.uid}`} className="btn btn-dark">
+          <h4 className="card-title">{props.name}</h4>
+          <Link
+            to={
+              props.type === "planets"
+                ? `/planets/${props.uid}`
+                : `/people/${props.uid}`
+            }
+            className="btn btn-dark"
+          >
             Learn More
           </Link>
           <Link to="/" className="btn btn-dark ms-3">

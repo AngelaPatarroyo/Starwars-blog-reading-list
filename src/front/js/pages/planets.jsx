@@ -22,6 +22,7 @@ const Planets = () => {
           return (
             <>
               <Card
+                type={"planets"}
                 key={item?.uid}
                 name={item?.name}
                 index={i}
