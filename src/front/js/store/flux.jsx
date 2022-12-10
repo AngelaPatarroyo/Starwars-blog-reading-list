@@ -24,7 +24,12 @@ const getState = ({ getStore, getActions, setStore }) => {
       loadDataAllPlanets: async (uid) => {
         fetch(`https://www.swapi.tech/api/planets/${uid}`)
           .then((resp) => resp.json())
-          .then((data) => setStore({ planetsData: data.result.properties }));
+          .then((data) => {
+            setStore({
+              planetsData: data.result.properties,
+            });
+          })
+          .catch((err) => console.log(err));
       },
       loadDataAllPeople: async (uid) => {
         fetch(`https://www.swapi.tech/api/people/${uid}`)

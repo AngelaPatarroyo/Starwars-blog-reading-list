@@ -16,7 +16,7 @@ const PlanetsInfo = () => {
             id="planetaimagen"
             clasName="ms-5"
             style={{ width: "500px" }}
-            src="https://starwarsblog.starwars.com/wp-content/uploads/2022/03/inside-intel-coruscant-planet.jpg"
+            src={`https://starwars-visualguide.com/assets/img/planets/${planetid}.jpg`}
           />
         </div>
         <div className="text-white">
