@@ -15,8 +15,8 @@ const getState = ({ getStore, getActions, setStore }) => {
         getActions().changeColor(0, "green");
       },
 
-      loadDataPlanets: async () => {
-        fetch("https://www.swapi.tech/api/planets?page=1&limit=60")
+      loadDataPlanets: async (numPage = 1) => {
+        fetch(`https://www.swapi.tech/api/planets?page=${numPage}&limit=10`)
           .then((resp) => resp.json())
           .then((data) => setStore({ planets: data.results }));
       },
@@ -37,8 +37,9 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((data) => setStore({ peopleData: data.result.properties }));
       },
 
-      loadDataPeople: async () => {
-        fetch("https://www.swapi.tech/api/people?page=1&limit=80")
+      loadDataPeople: async (numPage = 1) => {
+        fetch(`https://www.swapi.tech/api/people?page=${numPage}&limit=10`)
+          /* el numero de la pagina se vuelve dinamico, en el parametro le pasamos lo que queremos que sea dinamico y en donde empieza, en este caso en 1. Esto para la paginación */
           .then((resp) => resp.json())
           .then((data) => setStore({ people: data.results }));
       },

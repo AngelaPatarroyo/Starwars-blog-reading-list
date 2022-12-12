@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Card = (props) => {
   return (
-    <div /*  */>
+    <div>
       <div
         className="card border border-light text-center d-flex m-3"
         style={{ width: "18rem" }}
