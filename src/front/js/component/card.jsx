@@ -6,24 +6,28 @@ export const Card = (props) => {
     <div>
       <div
         className="card border border-light text-center d-flex m-3"
-        style={{ width: "18rem" }}
+        style={{ width: "100" }}
       >
         <img
           src={
             props?.type === "planets"
               ? `https://starwars-visualguide.com/assets/img/planets/${props.uid}.jpg`
-              : `https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg`
+              : props?.type === "people"
+              ? `https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg`
+              : `https://starwars-visualguide.com/assets/img/vehicles/${props.uid}.jpg`
           }
           className="card-img-top"
           alt="..."
         />
         <div className="card-body">
-          <h4 className="card-title">{props.name}</h4>
+          <h5 className="card-title">{props.name}</h5>
           <Link
             to={
               props.type === "planets"
                 ? `/planets/${props.uid}`
-                : `/people/${props.uid}`
+                : props.type === "people"
+                ? `/people/${props.uid}`
+                : `/vehicles/${props.uid}`
             }
             className="btn btn-dark"
           >

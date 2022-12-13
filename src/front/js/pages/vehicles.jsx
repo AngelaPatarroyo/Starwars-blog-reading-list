@@ -4,10 +4,46 @@ import { Context } from "../store/appContext";
 
 export const Vehicles = () => {
   const { store, actions } = useContext(Context);
-  console.log(store?.vehicles);
+  const paginado = [1, 2, 3, 4];
+
+  useEffect(() => {
+    actions.loadDataVehicles();
+  }, []);
   return (
     <div>
-      <Card />
+      <h2
+        className="my-5 d-flex justify-content-center"
+        style={{ color: "#FFE81F" }}
+      >
+        Vehicles
+      </h2>
+      {paginado.map((element) => {
+        return (
+          <div className="float-lg-start">
+            <button
+              className="btn btn-primary mx-1 mb-5"
+              onClick={() => {
+                actions.loadDataVehicles(element);
+              }}
+            >
+              {element}
+            </button>
+          </div>
+        );
+      })}
+      <div className="container-fluid row row-cols-5">
+        {store?.vehicles.map((item, i) => {
+          return (
+            <Card
+              type={"vehicles"}
+              key={item?.uid}
+              name={item?.name}
+              index={i}
+              uid={item?.uid}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

@@ -5,8 +5,10 @@ const getState = ({ getStore, getActions, setStore }) => {
       vehicles: [],
       people: [],
       planets: [],
+      species: [],
       peopleData: [],
-      planetsData: {},
+      planetsData: [],
+      vehiclesData: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -43,7 +45,22 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then((resp) => resp.json())
           .then((data) => setStore({ people: data.results }));
       },
+      loadDataVehicles: async (numPage = 1) => {
+        fetch(`https://www.swapi.tech/api/vehicles?page=${numPage}&limit=10`)
+          .then((resp) => resp.json())
+          .then((data) => setStore({ vehicles: data.results }));
+      },
+      loadDataAllVehicles: async (uid) => {
+        fetch(`https://www.swapi.tech/api/vehicles/${uid}`)
+          .then((resp) => resp.json())
+          .then((data) => setStore({ vehiclesData: data.result.properties }));
+      },
 
+      loadDataSpecies: async (numPage = 1) => {
+        fetch(`https://www.swapi.tech/api/species?page=${numPage}&limit=10`)
+          .then((resp) => resp.json())
+          .then((data) => setStore({ species: data.results }));
+      },
       getMessage: async () => {
         try {
           // fetching data from the backend
