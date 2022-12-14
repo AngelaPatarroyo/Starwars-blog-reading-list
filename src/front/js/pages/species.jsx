@@ -17,10 +17,9 @@ export const Species = () => {
       >
         Species
       </h2>
-
-      {paginado.map((element) => {
-        return (
-          <div className="float-lg-start">
+      <div className="d-flex justify-content-center">
+        {paginado.map((element) => {
+          return (
             <button
               className="btn btn-primary mx-1 mb-5"
               onClick={() => {
@@ -29,10 +28,9 @@ export const Species = () => {
             >
               {element}
             </button>
-          </div>
-        );
-      })}
-
+          );
+        })}
+      </div>
       <div className="container-fluid row row-cols-5">
         {store?.species.map((item, i) => {
           return (

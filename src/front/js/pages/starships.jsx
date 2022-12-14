@@ -18,10 +18,9 @@ const Starships = () => {
       >
         Starships
       </h2>
-
-      {paginado.map((element) => {
-        return (
-          <div className="float-lg-start">
+      <div className="d-flex justify-content-center">
+        {paginado.map((element) => {
+          return (
             <button
               className="btn btn-primary mx-1 mb-5"
               onClick={() => {
@@ -30,10 +29,9 @@ const Starships = () => {
             >
               {element}
             </button>
-          </div>
-        );
-      })}
-
+          );
+        })}
+      </div>
       <div className="container-fluid row row-cols-5">
         {store?.starships.map((item, i) => {
           return (
