@@ -1,4 +1,8 @@
-const getState = ({ getStore, getActions, setStore }) => {
+const getState = ({
+  getStore,
+  getActions /* me per mite acceder a las otras actions d emi store */,
+  setStore,
+}) => {
   return {
     store: {
       message: null,
@@ -6,15 +10,52 @@ const getState = ({ getStore, getActions, setStore }) => {
       people: [],
       planets: [],
       species: [],
+      starships: [],
       peopleData: [],
       planetsData: [],
       vehiclesData: [],
+      favoritos: [],
+      removeFavoritos: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
 
       exampleFunction: () => {
         getActions().changeColor(0, "green");
+      },
+
+      addFavoritos: (element) => {
+        let currentStore = getStore();
+        setStore({
+          ...currentStore,
+          favoritos: [...currentStore.favoritos, element],
+        });
+      },
+
+      removeFavoritos: (index) => {
+        let currentStore = getStore();
+        let newFavoritos = [...currentStore.favoritos];
+        newFavoritos.splice(index, 1);
+        setStore({
+          ...currentStore,
+          favoritos: newFavoritos,
+        });
+      },
+
+      handleFavoritos: (data) => {
+        let storeActions = getActions();
+        let currentStore = getStore();
+        let favoritoIndex = currentStore.favoritos.findIndex(
+          (fav) => fav.link == data.link
+        );
+        if (favoritoIndex == -1) {
+          setStore({
+            ...currentStore,
+            favoritos: [...currentStore.favoritos, data],
+          });
+        } else {
+          storeActions.removeFavoritos(favoritoIndex);
+        }
       },
 
       loadDataPlanets: async (numPage = 1) => {
@@ -60,6 +101,12 @@ const getState = ({ getStore, getActions, setStore }) => {
         fetch(`https://www.swapi.tech/api/species?page=${numPage}&limit=10`)
           .then((resp) => resp.json())
           .then((data) => setStore({ species: data.results }));
+      },
+
+      loadDataStarships: async (numPage = 1) => {
+        fetch(`https://www.swapi.tech/api/starships?page=${numPage}&limit=10`)
+          .then((resp) => resp.json())
+          .then((data) => setStore({ starships: data.results }));
       },
       getMessage: async () => {
         try {

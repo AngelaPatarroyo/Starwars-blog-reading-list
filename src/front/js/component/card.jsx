@@ -1,7 +1,19 @@
-import React from "react";
+import React, { useContext } from "react";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 export const Card = (props) => {
+  const { store, actions } = useContext(Context);
+  function handleFavoritos(data) {
+    let favoritoIndex = store.favoritos.findIndex(
+      (fav) => fav.link == data.link
+    );
+    if (favoritoIndex == -1) {
+      actions.addFavoritos(data);
+    } else {
+      actions.removeFavoritos(favoritoIndex);
+    }
+  }
   return (
     <div>
       <div
@@ -14,6 +26,8 @@ export const Card = (props) => {
               ? `https://starwars-visualguide.com/assets/img/planets/${props.uid}.jpg`
               : props?.type === "people"
               ? `https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg`
+              : props?.type === "species"
+              ? `https://starwars-visualguide.com/assets/img/species/${props.uid}.jpg`
               : `https://starwars-visualguide.com/assets/img/vehicles/${props.uid}.jpg`
           }
           className="card-img-top"
@@ -33,9 +47,20 @@ export const Card = (props) => {
           >
             Learn More
           </Link>
-          <Link to="/" className="btn btn-dark ms-3">
+
+          <button
+            onClick={() =>
+              handleFavoritos(
+                actions.addFavoritos({
+                  name: props.name,
+                  link: `/${props.type}/${props.uid}`,
+                })
+              )
+            }
+            className="btn btn-dark ms-3"
+          >
             <i className="bi bi-heart-fill" />
-          </Link>
+          </button>
         </div>
       </div>
     </div>

@@ -1,5 +1,11 @@
 import React from "react";
 
-export const Starships = () => {
-  return <div className="text-white">starshipS</div>;
+const Starships = () => {
+  return (
+    <div>
+      <h1>Muestre algo</h1>
+    </div>
+  );
 };
+
+export { Starships };
