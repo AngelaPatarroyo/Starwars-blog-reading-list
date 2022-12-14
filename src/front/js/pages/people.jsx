@@ -1,6 +1,5 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Card } from "../component/card.jsx";
-import { Link } from "react-router-dom";
 
 import { Context } from "../store/appContext";
 

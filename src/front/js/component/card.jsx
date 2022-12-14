@@ -26,8 +26,12 @@ export const Card = (props) => {
               ? `https://starwars-visualguide.com/assets/img/planets/${props.uid}.jpg`
               : props?.type === "people"
               ? `https://starwars-visualguide.com/assets/img/characters/${props.uid}.jpg`
+              : props?.type === "films"
+              ? `https://starwars-visualguide.com/assets/img/films/${props.uid}.jpg`
               : props?.type === "species"
               ? `https://starwars-visualguide.com/assets/img/species/${props.uid}.jpg`
+              : props?.type === "starships"
+              ? `https://starwars-visualguide.com/assets/img/starships/${props.uid}.jpg`
               : `https://starwars-visualguide.com/assets/img/vehicles/${props.uid}.jpg`
           }
           className="card-img-top"

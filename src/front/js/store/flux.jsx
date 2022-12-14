@@ -10,6 +10,7 @@ const getState = ({
       people: [],
       planets: [],
       species: [],
+      films: [],
       starships: [],
       peopleData: [],
       planetsData: [],
@@ -108,6 +109,13 @@ const getState = ({
           .then((resp) => resp.json())
           .then((data) => setStore({ starships: data.results }));
       },
+
+      loadDataFilms: async (numPage = 1) => {
+        fetch(`https://www.swapi.tech/api/films?page=${numPage}&limit=10`)
+          .then((resp) => resp.json())
+          .then((data) => setStore({ films: data.result }));
+      },
+
       getMessage: async () => {
         try {
           // fetching data from the backend

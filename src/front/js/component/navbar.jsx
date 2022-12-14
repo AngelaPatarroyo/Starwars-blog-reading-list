@@ -51,7 +51,7 @@ export const Navbar = () => {
             </li>
             <li className="nav-item">
               <Link to="/people" className="nav-link text-white" href="#">
-                People
+                Characters
               </Link>
             </li>
             <li className="nav-item">
