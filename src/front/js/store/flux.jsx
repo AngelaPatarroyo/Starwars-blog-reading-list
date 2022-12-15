@@ -15,6 +15,8 @@ const getState = ({
       peopleData: [],
       planetsData: [],
       vehiclesData: [],
+      speciesData: [],
+      starshipsData: [],
       favoritos: [],
       removeFavoritos: [],
     },
@@ -114,6 +116,17 @@ const getState = ({
         fetch(`https://www.swapi.tech/api/films?page=${numPage}&limit=10`)
           .then((resp) => resp.json())
           .then((data) => setStore({ films: data.result }));
+      },
+
+      loadDataAllSpecies: async (uid) => {
+        fetch(`https://www.swapi.tech/api/species/${uid}`)
+          .then((resp) => resp.json())
+          .then((data) => setStore({ speciesData: data.result.properties }));
+      },
+      loadDataAllStarships: async (uid) => {
+        fetch(`https://www.swapi.tech/api/starships/${uid}`)
+          .then((resp) => resp.json())
+          .then((data) => setStore({ starshipsData: data.result.properties }));
       },
 
       getMessage: async () => {

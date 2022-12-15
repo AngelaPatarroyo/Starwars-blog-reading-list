@@ -2,11 +2,11 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 
-const PeopleInfo = () => {
+const SpeciesInfo = () => {
   const { store, actions } = useContext(Context);
-  const { peopleid } = useParams();
+  const { speciesid } = useParams();
   useEffect(() => {
-    actions.loadDataAllPeople(peopleid);
+    actions.loadDataAllSpecies(speciesid);
   }, []);
   return (
     <div
@@ -20,20 +20,20 @@ const PeopleInfo = () => {
         <img
           className="rounded-3 me-5"
           style={{ maxWidth: "500px" }}
-          src={`https://starwars-visualguide.com/assets/img/characters/${peopleid}.jpg`}
+          src={`https://starwars-visualguide.com/assets/img/species/${speciesid}.jpg`}
         />
         <div className="text-white">
-          <h1 className="mt-4">{store.peopleData.name || ""}</h1>
+          <h1 className="mt-4">{store.speciesData.name || ""}</h1>
           <hr></hr>
-          <p className="mt-5">Height: {store.peopleData.height}</p>
-          <p>Gender: {store.peopleData.gender}</p>
-          <p>Hair Color: {store.peopleData.hair_color}</p>
-          <p>Eye Color: {store.peopleData.eye_color}</p>
-          <p>Birth Year: {store.peopleData.birth_year}</p>
+          <p className="mt-5">Language: {store.speciesData.language}</p>
+          <p>Skin Color: {store.speciesData.skin_colors}</p>
+          <p>Hair Color: {store.speciesData.hair_colors}</p>
+          <p>Eye Color: {store.speciesData.eye_colors}</p>
+          <p>Classification: {store.speciesData.classification}</p>
         </div>
       </div>
     </div>
   );
 };
 
-export { PeopleInfo };
+export { SpeciesInfo };

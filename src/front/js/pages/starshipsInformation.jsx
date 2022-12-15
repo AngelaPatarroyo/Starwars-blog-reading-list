@@ -2,12 +2,11 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../store/appContext";
 import { useParams } from "react-router-dom";
 
-const VehiclesInfo = () => {
+const StarshipsInfo = () => {
   const { store, actions } = useContext(Context);
-  const { vehiclesid } = useParams();
-
+  const { starshipsid } = useParams();
   useEffect(() => {
-    actions.loadDataAllVehicles(vehiclesid);
+    actions.loadDataAllStarships(starshipsid);
   }, []);
   return (
     <div
@@ -21,19 +20,20 @@ const VehiclesInfo = () => {
         <img
           className="rounded-3 me-5"
           style={{ maxWidth: "400px" }}
-          src={`https://starwars-visualguide.com/assets/img/vehicles/${vehiclesid}.jpg`}
+          src={`https://starwars-visualguide.com/assets/img/starships/${starshipsid}.jpg`}
         />
         <div className="text-white">
-          <h1 className="mt-4">{store.vehiclesData.name}</h1>
+          <h1 className="mt-4">{store.starshipsData.name}</h1>
           <hr></hr>
-          <p className="mt-5">Model: {store.vehiclesData.model}</p>
-          <p>Class: {store.vehiclesData.vehicle_class}</p>
-          <p>Manufacturer: {store.vehiclesData.manufacturer}</p>
-          <p>Length: {store.vehiclesData.length}</p>
-          <p>Passengers: {store.vehiclesData.passengers}</p>
+          <p className="mt-5">Class: {store.starshipsData.starship_class}</p>
+          <p>Manufacturer: {store.starshipsData.manufacturer}</p>
+          <p>Cost in Credits: {store.starshipsData.cost_in_credits}</p>
+          <p>Crew: {store.starshipsData.crew}</p>
+          <p>Consumables: {store.starshipsData.consumables}</p>
         </div>
       </div>
     </div>
   );
 };
-export { VehiclesInfo };
+
+export { StarshipsInfo };

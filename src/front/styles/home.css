@@ -9,3 +9,8 @@
 body {
   background-color: black;
 }
+
+#cardInfo {
+  margin-top: 100px;
+  margin-bottom: 150px;
+}
