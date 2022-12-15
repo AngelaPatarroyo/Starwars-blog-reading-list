@@ -8,6 +8,10 @@ const PlanetsInfo = () => {
   useEffect(() => {
     actions.loadDataAllPlanets(planetid);
   }, []);
+  function imgError(e) {
+    e.target.src =
+      "https://cdn.dribbble.com/users/841405/screenshots/2309412/media/151deca2fce8def92407713a6578d1af.png?compress=1&resize=400x300&vertical=top";
+  }
   return (
     <div
       id="cardInfo"
@@ -21,6 +25,7 @@ const PlanetsInfo = () => {
           className="rounded-3 me-5"
           style={{ maxWidth: "500px" }}
           src={`https://starwars-visualguide.com/assets/img/planets/${planetid}.jpg`}
+          onError={(e) => imgError(e)}
         />
 
         <div className="text-white">

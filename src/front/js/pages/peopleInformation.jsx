@@ -21,6 +21,7 @@ const PeopleInfo = () => {
           className="rounded-3 me-5"
           style={{ maxWidth: "500px" }}
           src={`https://starwars-visualguide.com/assets/img/characters/${peopleid}.jpg`}
+          onError={(e) => imgError(e)}
         />
         <div className="text-white">
           <h1 className="mt-4">{store.peopleData.name || ""}</h1>

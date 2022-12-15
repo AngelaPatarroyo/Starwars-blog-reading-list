@@ -8,6 +8,10 @@ const StarshipsInfo = () => {
   useEffect(() => {
     actions.loadDataAllStarships(starshipsid);
   }, []);
+  function imgError(e) {
+    e.target.src =
+      "https://cdn.dribbble.com/users/841405/screenshots/2309412/media/151deca2fce8def92407713a6578d1af.png?compress=1&resize=400x300&vertical=top";
+  }
   return (
     <div
       id="cardInfo"
@@ -21,6 +25,7 @@ const StarshipsInfo = () => {
           className="rounded-3 me-5"
           style={{ maxWidth: "400px" }}
           src={`https://starwars-visualguide.com/assets/img/starships/${starshipsid}.jpg`}
+          onError={(e) => imgError(e)}
         />
         <div className="text-white">
           <h1 className="mt-4">{store.starshipsData.name}</h1>

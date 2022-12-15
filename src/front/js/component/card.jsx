@@ -16,8 +16,9 @@ export const Card = (props) => {
   }
   function imgError(e) {
     e.target.src =
-      "https://i.pinimg.com/originals/e8/63/92/e863927635dc1c5aba5663e8dd33efa0.jpg";
+      "https://cdn.dribbble.com/users/841405/screenshots/2309412/media/151deca2fce8def92407713a6578d1af.png?compress=1&resize=400x300&vertical=top";
   }
+  /* esta función me llama esta imagen cuando no encuentra la imagen del personaje ne la API */
   return (
     <div>
       <div
