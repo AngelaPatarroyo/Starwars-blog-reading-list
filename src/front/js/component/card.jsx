@@ -14,6 +14,10 @@ export const Card = (props) => {
       actions.removeFavoritos(favoritoIndex);
     }
   }
+  function imgError(e) {
+    e.target.src =
+      "https://i.pinimg.com/originals/e8/63/92/e863927635dc1c5aba5663e8dd33efa0.jpg";
+  }
   return (
     <div>
       <div
@@ -35,7 +39,8 @@ export const Card = (props) => {
               : `https://starwars-visualguide.com/assets/img/vehicles/${props.uid}.jpg`
           }
           className="card-img-top"
-          alt="..."
+          alt={props.name}
+          onError={(e) => imgError(e)}
         />
         <div className="card-body">
           <h5 className="card-title">{props.name}</h5>

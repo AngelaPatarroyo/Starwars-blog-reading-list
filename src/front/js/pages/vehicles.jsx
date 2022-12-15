@@ -2,7 +2,7 @@ import React, { useContext, useEffect } from "react";
 import { Card } from "../component/card.jsx";
 import { Context } from "../store/appContext";
 
-export const Vehicles = () => {
+const Vehicles = () => {
   const { store, actions } = useContext(Context);
   const paginado = [1, 2, 3, 4];
 
@@ -47,3 +47,5 @@ export const Vehicles = () => {
     </div>
   );
 };
+
+export { Vehicles };
