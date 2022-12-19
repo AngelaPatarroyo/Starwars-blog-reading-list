@@ -24,7 +24,7 @@ const People = () => {
             <button
               className="btn btn-primary mx-1 mb-5"
               onClick={() => {
-                actions.loadDataPeople(element);
+                actions?.loadDataPeople(element);
               }}
             >
               {element}

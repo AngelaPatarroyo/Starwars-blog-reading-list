@@ -64,12 +64,11 @@ export const Card = (props) => {
 
           <button
             onClick={() =>
-              handleFavoritos(
-                actions.addFavoritos({
-                  name: props.name,
-                  link: `/${props.type}/${props.uid}`,
-                })
-              )
+              actions.handleFavoritos({
+                name: props.name,
+                type: props.type,
+                link: `/${props.type}/${props.uid}`,
+              })
             }
             className="btn btn-dark ms-3"
           >

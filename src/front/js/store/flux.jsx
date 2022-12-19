@@ -1,7 +1,7 @@
 const getState = ({
-  getStore,
-  getActions /* me per mite acceder a las otras actions d emi store */,
-  setStore,
+  getStore /* me permite acceder al store dentro del store */,
+  getActions /* me permite acceder a las otras actions de mi store */,
+  setStore /*  */,
 }) => {
   return {
     store: {
@@ -27,37 +27,27 @@ const getState = ({
         getActions().changeColor(0, "green");
       },
 
-      addFavoritos: (element) => {
-        let currentStore = getStore();
-        setStore({
-          ...currentStore,
-          favoritos: [...currentStore.favoritos, element],
-        });
-      },
-
-      removeFavoritos: (index) => {
-        let currentStore = getStore();
-        let newFavoritos = [...currentStore.favoritos];
-        newFavoritos.splice(index, 1);
-        setStore({
-          ...currentStore,
-          favoritos: newFavoritos,
-        });
-      },
-
       handleFavoritos: (data) => {
-        let storeActions = getActions();
         let currentStore = getStore();
+        /* busco el indice del favorito para saber si existe */
         let favoritoIndex = currentStore.favoritos.findIndex(
           (fav) => fav.link == data.link
         );
+
+        /* si el favorito no existe se agrega */
         if (favoritoIndex == -1) {
           setStore({
             ...currentStore,
             favoritos: [...currentStore.favoritos, data],
           });
         } else {
-          storeActions.removeFavoritos(favoritoIndex);
+          /* si ya existe se elimina */
+          let newFavoritos = [...currentStore.favoritos];
+          newFavoritos.splice(favoritoIndex, 1);
+          setStore({
+            ...currentStore,
+            favoritos: newFavoritos,
+          });
         }
       },
 

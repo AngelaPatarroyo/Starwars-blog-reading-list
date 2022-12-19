@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Starwars from "../../img/starwars.png";
+import { Context } from "../store/appContext";
 import { Link } from "react-router-dom";
 
 export const Navbar = () => {
+  const { store, actions } = useContext(Context);
   return (
     <nav className="navbar navbar-light bg-black">
       <nav
@@ -32,7 +34,7 @@ export const Navbar = () => {
             <li className="nav-item">
               <Link
                 to="/"
-                className="nav-link active text-white ms-3"
+                className="nav-link active text-white"
                 aria-current="page"
                 href="#"
               >
@@ -82,20 +84,20 @@ export const Navbar = () => {
         >
           Favourites
         </a>
-        <ul className="dropdown-menu">
-          <li>
-            <a className="dropdown-item" href="#">
-              Action
-            </a>
-          </li>
-          <li>
-            <a className="dropdown-item" href="#">
-              Another action
-            </a>
-          </li>
-          <li>
-            <hr className="dropdown-divider" />
-          </li>
+
+        <ul
+          className="dropdown-menu"
+          aria-labelledby="dropdownMenuButton1"
+          aria-current="true"
+        >
+          {store.favoritos.map((element, index) => {
+            return (
+              <li key={index}>
+                {element.name} {"("} {element.type}
+                {")"}
+              </li>
+            );
+          })}
         </ul>
       </li>
     </nav>
