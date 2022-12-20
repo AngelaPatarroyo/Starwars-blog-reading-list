@@ -4,16 +4,7 @@ import { Link } from "react-router-dom";
 
 export const Card = (props) => {
   const { store, actions } = useContext(Context);
-  function handleFavoritos(data) {
-    let favoritoIndex = store.favoritos.findIndex(
-      (fav) => fav.link == data.link
-    );
-    if (favoritoIndex == -1) {
-      actions.addFavoritos(data);
-    } else {
-      actions.removeFavoritos(favoritoIndex);
-    }
-  }
+
   function imgError(e) {
     e.target.src =
       "https://cdn.dribbble.com/users/841405/screenshots/2309412/media/151deca2fce8def92407713a6578d1af.png?compress=1&resize=400x300&vertical=top";
