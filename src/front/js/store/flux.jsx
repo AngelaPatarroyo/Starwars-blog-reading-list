@@ -19,7 +19,6 @@ const getState = ({
       starshipsData: [],
       filmsData: [],
       favoritos: [],
-      removeFavoritos: [],
     },
     actions: {
       // Use getActions to call a function within a fuction
@@ -50,6 +49,14 @@ const getState = ({
             favoritos: newFavoritos,
           });
         }
+      },
+
+      removeFavoritos: (itemDelete) => {
+        const store = getStore();
+        let newFavoritos = store.favoritos.filter(
+          (item) => item !== itemDelete
+        );
+        setStore({ favoritos: newFavoritos });
       },
 
       loadDataPlanets: async (numPage = 1) => {

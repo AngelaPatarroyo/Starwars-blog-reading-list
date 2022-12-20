@@ -24,7 +24,7 @@ export const Navbar = () => {
           data-bs-toggle="collapse"
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
-          aria-expanded="false"
+          aria-expanded="true"
           aria-label="Toggle navigation"
         >
           <span className="navbar-toggler-icon" />
@@ -74,7 +74,7 @@ export const Navbar = () => {
           </ul>
         </div>
       </nav>
-      <li className="nav-item dropdown d-flex align-items-center me-5">
+      <li id="Fav" className="nav-item dropdown d-flex align-items-center">
         <a
           className="nav-link dropdown-toggle text-white "
           href="#"
@@ -85,17 +85,23 @@ export const Navbar = () => {
           Favourites
         </a>
 
-        <ul
-          className="dropdown-menu"
-          aria-labelledby="dropdownMenuButton1"
-          aria-current="true"
-        >
+        <ul className="dropdown-menu" aria-current="true">
           {store.favoritos.map((element, index) => {
             return (
-              <li key={index}>
-                {element.name} {"("} {element.type}
-                {")"}
-              </li>
+              <div className="d-flex">
+                <li key={index}>
+                  {element.name} {"("} {element.type}
+                  {")"}
+                </li>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => {
+                    actions.removeFavoritos(element);
+                  }}
+                >
+                  X
+                </button>
+              </div>
             );
           })}
         </ul>
