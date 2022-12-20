@@ -8,6 +8,7 @@ const Films = () => {
 
   useEffect(() => {
     actions.loadDataFilms();
+    actions.loadDataAllFilms();
   }, []);
 
   return (
@@ -23,13 +24,7 @@ const Films = () => {
         {store?.films.map((item, i) => {
           return (
             <>
-              <Card
-                type={"films"}
-                key={item?.uid}
-                name={item?.name}
-                index={i}
-                uid={item?.uid}
-              />
+              <Card type={"films"} key={item?.uid} index={i} uid={item?.uid} />
             </>
           );
         })}

@@ -14,6 +14,7 @@ import { PeopleInfo } from "./pages/peopleInformation.jsx";
 import { VehiclesInfo } from "./pages/vehiclesInformation.jsx"
 import { SpeciesInfo } from "./pages/speciesInformation.jsx"
 import { StarshipsInfo } from "./pages/starshipsInformation.jsx"
+import { FilmsInfo } from "./pages/filmsInformation.jsx"
 import injectContext from "./store/appContext";
 import { Navbar } from "./component/navbar.jsx";
 import { Footer } from "./component/footer.jsx";
@@ -44,6 +45,7 @@ const Layout = () => {
                         <Route element={<SpeciesInfo />} path="/species/:speciesid" />
                         <Route element={<StarshipsInfo />} path="/starships/:starshipsid" />
                         <Route element={<VehiclesInfo />} path="/vehicles/:vehiclesid" />
+                        <Route element={<FilmsInfo />} path="/films/:filmsid" />
                         <Route element={<h1>Not found!</h1>} />
                     </Routes>
                     <Footer />

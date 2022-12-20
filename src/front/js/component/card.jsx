@@ -55,6 +55,8 @@ export const Card = (props) => {
                 ? `/species/${props.uid}`
                 : props.type === "starships"
                 ? `/starships/${props.uid}`
+                : props.type === "films"
+                ? `/films/${props.uid}`
                 : `/vehicles/${props.uid}`
             }
             className="btn btn-dark"
